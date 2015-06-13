@@ -1,0 +1,17 @@
+Changelog
+=========
+
+1.9.1
+-----
+
+* Changes usage of input/dropdown to input/select.
+
+1.9.0
+-----
+
+* Updated version 1.8.0 for Elgg 1.9.
+
+1.8.0
+-----
+
+* Initial release.

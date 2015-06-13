@@ -19,7 +19,7 @@ $params = array(
 	'value' => $vars['entity']->user_listing_limit,
 	'options' => array(10, 15, 20, 40, 80, 200),
 );
-$dropdown_user_listing_limit = elgg_view('input/dropdown', $params);
+$dropdown_user_listing_limit = elgg_view('input/select', $params);
 
 // set default for location of online users display
 if (!isset($vars['entity']->display_option)) {
@@ -34,7 +34,7 @@ $params = array(
 		'both' => elgg_echo('users_online:settings:both'),
 	),
 );
-$dropdown_display_option = elgg_view('input/dropdown', $params);
+$dropdown_display_option = elgg_view('input/select', $params);
 
 ?>
 <div>
