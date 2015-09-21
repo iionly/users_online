@@ -24,7 +24,7 @@ $users_online = find_active_users(array('seconds' => 300, 'limit' => $limit));
 $title = elgg_echo('users_online:online');
 if ($users_online) {
 	foreach($users_online as $user) {
-		$spacer_url = elgg_get_site_url() . '_graphics/spacer.gif';
+		$spacer_url = elgg_get_simplecache_url("spacer.gif");
 		$name = htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8', false);
 		$username = $user->username;
 		$icon_url = elgg_format_url($user->getIconURL('tiny'));

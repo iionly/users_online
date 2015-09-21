@@ -1,7 +1,7 @@
-Users Online for Elgg 1.9 - 1.12
-================================
+Users Online for Elgg 2.X
+=========================
 
-Latest Version: 1.9.2  
+Latest Version: 2.0.0  
 Released: 2015-09-21  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 2  
