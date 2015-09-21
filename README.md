@@ -1,8 +1,8 @@
-Users Online for Elgg 1.9 - 1.11
+Users Online for Elgg 1.9 - 1.12
 ================================
 
-Latest Version: 1.9.1  
-Released: 2015-06-13  
+Latest Version: 1.9.2  
+Released: 2015-09-21  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 2  
 Copyright: (c) iionly 2014
@@ -17,6 +17,7 @@ The Users Online plugin displays a list of users (i.e. a list of their avatars) 
 Installation and configuration
 ------------------------------
 
-1. Copy the users_online plugin folder into the mod folder on your server,
-2. Enable the plugin in the admin section of your site,
-3. Check out the plugin settings and modify the configurations according to your liking.
+1. If you have a previous version of the Users Online plugin installed, first remove the old plugin folder from your mod directory before copying/extracting the new version to your server,
+2. Copy the users_online plugin folder into the mod folder on your server,
+3. Enable the plugin in the admin section of your site,
+4. Check out the plugin settings and modify the configurations according to your liking.

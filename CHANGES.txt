@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.9.2
+-----
+
+* composer.json added.
+
 1.9.1
 -----
 

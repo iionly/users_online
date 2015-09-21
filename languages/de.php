@@ -14,7 +14,7 @@
 
 return array(
 	'users_online:online' => "Online: ",
-	'users_online:noonline' => " -niemand- ",
+	'users_online:noonline' => "niemand",
 
 	'users_online:settings:user_listing_limit' => 'Wie viele Benutzer sollen maximal angezeigt werden? ',
 	'users_online:settings:display_option' => 'Wo sollen die derzeit angemeldeten Benutzer angezeigt werden? ',

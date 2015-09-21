@@ -14,7 +14,7 @@
 
 return array(
 	'users_online:online' => "Online: ",
-	'users_online:noonline' => " -nobody- ",
+	'users_online:noonline' => "nobody",
 
 	'users_online:settings:user_listing_limit' => 'How many users should be listed at maximum? ',
 	'users_online:settings:display_option' => 'Where should the online users get displayed? ',

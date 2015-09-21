@@ -1,0 +1,24 @@
+{
+    "name": "iionly/users_online",
+    "description": "Lists users who are currently online on the top of the page body or in the sidebar or in both locations.",
+    "type": "elgg-plugin",
+    "keywords": [
+        "elgg",
+        "plugin"
+    ],
+    "homepage": "https://github.com/iionly/users_online",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "iionly",
+            "homepage": "https://github.com/iionly",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+            "issues": "https://github.com/iionly/users_online/issues"
+    },
+    "require": {
+        "composer/installers": ">=1.0.8"
+    }
+}
