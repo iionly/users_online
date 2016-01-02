@@ -16,7 +16,7 @@ function users_online_init() {
 	elgg_extend_view('css/elgg', 'users_online/css');
 	if (elgg_is_logged_in()) {
 		$display_option = elgg_get_plugin_setting('display_option', 'users_online');
-		if (!display_option) {
+		if (!$display_option) {
 			$display_option = 'top';
 		}
 		if ($display_option == 'top') {
