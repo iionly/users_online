@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.9.3
+-----
+
+* Fix to get the fallback to work in case plugin option about where to display online users is not set (thanks to lweddewer).
+
 1.9.2
 -----
 
