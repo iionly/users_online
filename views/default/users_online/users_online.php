@@ -14,53 +14,45 @@
  */
 
 // limit number of users to be displayed
-$limit = elgg_get_plugin_setting('user_listing_limit', 'users_online');
-if (!$limit) {
-	$limit = 20;
-}
-// active users within the last 5 minutes
-$users_online = find_active_users(array('seconds' => 300, 'limit' => $limit));
+$limit = (int) elgg_get_plugin_setting('user_listing_limit', 'users_online', 20);
+// display admins currently logged in?
+$show_admins = elgg_get_plugin_setting('show_admins', 'users_online', 'yes');
+$show_admins = ($show_admins == 'yes') ? "('yes', 'no')" : "('no')";
 
-$visitors = "<div><table border='0' class='usersonline' cellspacing='0' cellpadding='0'><tr>";
-$visitors .= "<td class='usersonlinetext'><h3>".elgg_echo('users_online:online')."</h3></td>";
-if($users_online) {
-	$visitors .= "<td>";
+// always added logged in user
+$logged_in_guid = elgg_get_logged_in_user_guid();
+
+// active users within the last 5 minutes
+$dbprefix = elgg_get_config('dbprefix');
+$time = time() - 300;
+$users_online = elgg_get_entities([
+	'type' => 'user',
+	'limit' => $limit,
+	'joins' => ["join {$dbprefix}users_entity u on e.guid = u.guid"],
+	'wheres' => ["((u.last_action >= $time) and (u.admin in $show_admins)) or (u.guid = $logged_in_guid)"],
+	'order_by' => "u.last_action desc",
+	'batch' => true,
+]);
+
+$table_content = elgg_format_element('td', ['class' => 'usersonlinetext'], elgg_format_element('h3', [], elgg_echo('users_online:online')));
+if ($users_online) {
+	$body = '';
 	foreach($users_online as $user) {
-		$spacer_url = elgg_get_simplecache_url("spacer.gif");
-		$name = htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8', false);
-		$username = $user->username;
-		$icon_url = elgg_format_url($user->getIconURL('tiny'));
-		$icon = elgg_view('output/img', array(
-			'src' => $spacer_url,
-			'alt' => $name,
-			'title' => $name,
-			'class' => '',
-			'style' => "background: url($icon_url) no-repeat;",
-		));
-		if ($user->isFriend()) {
+		if ($user->isAdmin()) {
+			$class = "usersonlineadminicon";
+		} else if ($user->isFriend()) {
 			$class = "usersonlinefriendicon";
 		} else {
 			$class = "usersonlineicon";
 		}
-
-		$visitors .= "<div class='elgg-avatar elgg-avatar-tiny'>";
-		$visitors .= elgg_view('output/url', array(
-			'href' => $user->getURL(),
-			'text' => $icon,
-			'is_trusted' => true,
-			'class' => "elgg-avatar elgg-avatar-tiny $class",
-		));
-		$visitors .= elgg_view_icon('hover-menu');
-		$visitors .= elgg_view_menu('user_hover', array('entity' => $user, 'username' => $username, 'name' => $name));
-		$visitors .= "</div>";
-		
+		$body .= elgg_view_entity_icon($user, 'tiny', ['img_class' => $class]);
 	}
-	$visitors .= "</td>";
+	$table_content .= elgg_format_element('td', [], $body);
 } else {
-	$visitors .= "<td class='usersonlinetext'>".elgg_echo('users_online:noonline')."</td>";
+	$table_content .= elgg_format_element('td', ['class' => 'usersonlinetext'], elgg_echo('users_online:noonline'));
 }
-$visitors .= "</tr></table></div>";
 
-echo "<div align='center' class='mtm mbm'>";
-echo $visitors;
-echo "</div>";
+$table_content = elgg_format_element('tr', [], $table_content);
+$table_content = elgg_format_element('div', [], elgg_format_element('table', ['class' => 'usersonline', 'border' => '0', 'cellspacing' => '0', 'cellpadding' => '0'], $table_content));
+
+echo elgg_format_element('div', ['align' => 'center', 'class' => 'mtn mbm'], $table_content);

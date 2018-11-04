@@ -12,13 +12,14 @@
  * @email iionly@gmx.de
  */
 
-return array(
+return [
 	'users_online:online' => "Online: ",
 	'users_online:noonline' => "nobody",
 
-	'users_online:settings:user_listing_limit' => 'How many users should be listed at maximum? ',
-	'users_online:settings:display_option' => 'Where should the online users get displayed? ',
+	'users_online:settings:user_listing_limit' => 'Number of users to be listed at maximum',
+	'users_online:settings:display_option' => 'Where should the online users get displayed?',
+	'users_online:settings:show_admins' => 'Should admins get displayed?',
 	'users_online:settings:top' => 'on top of page body',
 	'users_online:settings:sidebar' => 'in the sidebar',
-	'users_online:settings:both' => 'both on top of page body and in sidebar'
-);
+	'users_online:settings:both' => 'both on top of page body and in sidebar',
+];

@@ -1,6 +1,14 @@
 Changelog
 =========
 
+2.3.2
+-----
+
+* Requires Elgg 2.3 at minimum,
+* New plugin option to show/hide admin users who are currently online within the listed online users,
+* Admin users are highlighted with a red border in the listed online users,
+* Code rework and cleanup and usage of API functions introduced with Elgg 2.3 in forms.
+
 2.0.1
 -----
 

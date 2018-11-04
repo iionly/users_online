@@ -1,8 +1,8 @@
-Users Online for Elgg 2.X
-=========================
+Users Online for Elgg 2.3 and newer Elgg 2.X
+============================================
 
-Latest Version: 2.0.1  
-Released: 2016-01-24  
+Latest Version: 2.3.2  
+Released: 2018-10-25  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 2  
 Copyright: (c) iionly 2014
@@ -11,7 +11,7 @@ Copyright: (c) iionly 2014
 Description
 -----------
 
-The Users Online plugin displays a list of users (i.e. a list of their avatars) who are currently online on your site. The list can be displayed either on top of the page body, in the sidebar or in both locations. "Currently online" means a user has shown any kind of activity within the last 5 minutes. It's also possible to configure the maximum number of users to be displayed. If any of the online users in the list is a friend of the currently logged in user the avatars of these users will be highlighted by a blue border.
+The Users Online plugin displays a list of users (i.e. a list of their avatars) who are currently online on your site. The list can be displayed either on top of the page body, in the sidebar or in both locations. "Currently online" means a user has shown any kind of activity within the last 5 minutes. It's also possible to configure the maximum number of users to be displayed and to hide admin users from getting displayed in the list of online users. If any of the online users in the list is a friend of the currently logged in user the avatars of these users will be highlighted by a blue border. Admin users are highlighted by a red border.
 
 
 Installation and configuration
