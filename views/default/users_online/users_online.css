@@ -8,48 +8,25 @@
 	padding: 4px;
 	margin: 4px;
 }
-
 .usersonlinetext {
-	width: 60px;
-	height: 25px;
 	padding: 4px;
 	margin: 4px;
 	align: center;
 	vertical-align: middle;
 }
-
 .usersonlineicon {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	border: solid #dcdcdc 1px;
-	width: 25px;
-	height: 25px;
+	max-width: 100%;
+	max-height: auto;
 	padding: 4px;
-	margin: 4px;
 	background: white;
 }
-
 .usersonlinefriendicon {
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	border: solid #dcdcdc 1px;
-	width: 25px;
-	height: 25px;
-	padding: 4px;
-	margin: 4px;
 	background: #4690d6;
 }
-
 .usersonlineadminicon {
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	border: solid #dcdcdc 1px;
-	width: 25px;
-	height: 25px;
-	padding: 4px;
-	margin: 4px;
 	background: #ff2244;
 }

@@ -13,7 +13,7 @@
  */
 
 return [
-	'users_online:online' => "Online: ",
+	'users_online:online' => "Online",
 	'users_online:noonline' => "nobody",
 
 	'users_online:settings:user_listing_limit' => 'Number of users to be listed at maximum',

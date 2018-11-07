@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.3.3
+-----
+
+* List online users more in Elgg core gallery list style (still with borders to highlight friends and admins).
+
 2.3.2
 -----
 

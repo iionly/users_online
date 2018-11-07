@@ -3,7 +3,7 @@
 	<name>Users Online</name>
 	<id>users_online</id>
 	<author>iionly</author>
-	<version>2.3.2</version>
+	<version>2.3.3</version>
 	<category>communication</category>
 	<description>Lists users who are currently online on the top of the page body or in the sidebar or in both locations.</description>
 	<website>https://github.com/iionly</website>

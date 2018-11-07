@@ -25,29 +25,15 @@ $logged_in_guid = elgg_get_logged_in_user_guid();
 // active users within the last 5 minutes
 $dbprefix = elgg_get_config('dbprefix');
 $time = time() - 300;
-$users_online = elgg_get_entities([
+$users_online = elgg_list_entities([
 	'type' => 'user',
 	'limit' => $limit,
 	'joins' => ["join {$dbprefix}users_entity u on e.guid = u.guid"],
 	'wheres' => ["((u.last_action >= $time) and (u.admin in $show_admins)) or (u.guid = $logged_in_guid)"],
 	'order_by' => "u.last_action desc",
-	'batch' => true,
+	'list_type' => 'gallery',
+	'item_view' => 'users_online/list/user',
+	'no_results' => elgg_echo('users_online:noonline'),
 ]);
 
-$body = '';
-if ($users_online) {
-	foreach($users_online as $user) {
-		if ($user->isAdmin()) {
-			$class = "usersonlineadminicon";
-		} else if ($user->isFriend()) {
-			$class = "usersonlinefriendicon";
-		} else {
-			$class = "usersonlineicon";
-		}
-		$body .= elgg_view_entity_icon($user, 'tiny', ['img_class' => $class]);
-	}
-} else {
-	$body = elgg_echo('users_online:noonline');
-}
-
-echo elgg_view_module('aside', elgg_echo('users_online:online'), $body);
+echo elgg_view_module('aside', elgg_echo('users_online:online'), $users_online);

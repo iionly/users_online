@@ -13,7 +13,7 @@
  */
 
 return [
-	'users_online:online' => "Online: ",
+	'users_online:online' => "Online",
 	'users_online:noonline' => "niemand",
 
 	'users_online:settings:user_listing_limit' => 'Anzahl der Benutzer, die maximal angezeigt werden',
