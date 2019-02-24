@@ -1,6 +1,11 @@
 Changelog
 =========
 
+2.3.4
+-----
+
+* Fix: explicitely set offset 0 for listing online users to prevent usage of offset value fetched from url when viewing listing pages with offset larger 0.
+
 2.3.3
 -----
 

@@ -1,8 +1,8 @@
 Users Online for Elgg 2.3 and newer Elgg 2.X
 ============================================
 
-Latest Version: 2.3.3  
-Released: 2018-11-07  
+Latest Version: 2.3.4  
+Released: 2019-02-20  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 2  
 Copyright: (c) iionly 2014

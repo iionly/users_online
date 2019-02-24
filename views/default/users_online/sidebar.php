@@ -28,6 +28,7 @@ $time = time() - 300;
 $users_online = elgg_list_entities([
 	'type' => 'user',
 	'limit' => $limit,
+	'offset' => 0,
 	'joins' => ["join {$dbprefix}users_entity u on e.guid = u.guid"],
 	'wheres' => ["((u.last_action >= $time) and (u.admin in $show_admins)) or (u.guid = $logged_in_guid)"],
 	'order_by' => "u.last_action desc",
