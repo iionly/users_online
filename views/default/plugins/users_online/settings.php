@@ -14,17 +14,8 @@ $plugin = elgg_extract('entity', $vars);
 
 // get current plugin settings values and set to default values if not yet set
 $user_listing_limit = (int) $plugin->user_listing_limit;
-if (!$user_listing_limit) {
-	$user_listing_limit = 20;
-}
 $display_option = $plugin->display_option;
-if (!$display_option) {
-	$display_option = 'top';
-}
 $show_admins = $plugin->show_admins;
-if (!$show_admins) {
-	$show_admins = 'yes';
-}
 
 // set value for maximum number of online users to be listed
 echo elgg_view_field([

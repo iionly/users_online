@@ -13,27 +13,55 @@
  * @email iionly@gmx.de
  */
 
+use Elgg\Database\QueryBuilder;
+
 // limit number of users to be displayed
-$limit = (int) elgg_get_plugin_setting('user_listing_limit', 'users_online', 20);
+$limit = (int) elgg_get_plugin_setting('user_listing_limit', 'users_online');
+
 // display admins currently logged in?
-$show_admins = elgg_get_plugin_setting('show_admins', 'users_online', 'yes');
-$show_admins = ($show_admins == 'yes') ? "('yes', 'no')" : "('no')";
+$show_admins = elgg_get_plugin_setting('show_admins', 'users_online');
 
 // always added logged in user
 $logged_in_guid = elgg_get_logged_in_user_guid();
 
 // active users within the last 5 minutes
-$dbprefix = elgg_get_config('dbprefix');
 $time = time() - 300;
+
 $users_online = elgg_list_entities([
 	'type' => 'user',
 	'limit' => $limit,
 	'offset' => 0,
-	'joins' => ["join {$dbprefix}users_entity u on e.guid = u.guid"],
-	'wheres' => ["((u.last_action >= $time) and (u.admin in $show_admins)) or (u.guid = $logged_in_guid)"],
-	'order_by' => "u.last_action desc",
+	'wheres' => function(QueryBuilder $qb, $alias) use ($time, $show_admins, $logged_in_guid) {
+		$qb->orderBy('e.last_action', 'DESC');
+
+		if ($show_admins != 'yes') {
+			// Fetch guids of all admins
+			$subquery = $qb->subquery('metadata', 'ad');
+			$subquery->select('ad.entity_guid')
+				->where($qb->compare('ad.name', '=', 'admin', ELGG_VALUE_STRING))
+				->andWhere($qb->compare('ad.value', '=', 'yes', ELGG_VALUE_STRING));
+
+			// We do not want the admins
+			$admin_filter = $qb->compare('e.guid', 'NOT IN', $subquery->getSQL());
+
+			$ands = $qb->merge([
+				$qb->compare('e.last_action', '>=', $time, ELGG_VALUE_INTEGER),
+				$admin_filter,
+			]);
+		} else {
+			$ands = $qb->compare('e.last_action', '>=', $time, ELGG_VALUE_INTEGER);
+		}
+
+		$ors = [
+			$qb->compare('e.guid', '=', $logged_in_guid, ELGG_VALUE_INTEGER),
+			$ands,
+		];
+
+		return $qb->merge($ors, 'OR');
+	},
 	'list_type' => 'gallery',
 	'item_view' => 'users_online/list/user',
+	'size' => 'small',
 	'no_results' => elgg_echo('users_online:noonline'),
 ]);
 

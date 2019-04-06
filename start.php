@@ -15,7 +15,7 @@ elgg_register_event_handler('init', 'system', 'users_online_init');
 function users_online_init() {
 	elgg_extend_view('css/elgg', 'users_online/users_online.css');
 	if (elgg_is_logged_in()) {
-		$display_option = elgg_get_plugin_setting('display_option', 'users_online', 'top');
+		$display_option = elgg_get_plugin_setting('display_option', 'users_online');
 		if ($display_option == 'top') {
 			elgg_extend_view('page/elements/body', 'users_online/users_online', 400);
 		} else if ($display_option == 'sidebar') {

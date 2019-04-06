@@ -7,13 +7,14 @@
 
 /* @var $user ElggUser */
 $user = elgg_extract('entity', $vars);
+$size = elgg_extract('size', $vars, 'tiny');
 
 if ($user->isAdmin()) {
-	$class = "usersonlineicon usersonlineadminicon";
+	$class = "usersonlineicon-$size usersonlineadminicon";
 } else if ($user->isFriend()) {
-	$class = "usersonlineicon usersonlinefriendicon";
+	$class = "usersonlineicon-$size usersonlinefriendicon";
 } else {
-	$class = "usersonlineicon";
+	$class = "usersonlineicon-$size";
 }
 
-echo elgg_view_entity_icon($user, 'tiny', ['img_class' => $class]);
+echo elgg_view_entity_icon($user, $size, ['img_class' => $class]);
