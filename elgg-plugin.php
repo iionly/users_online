@@ -1,6 +1,10 @@
 <?php
 
 return [
+	'plugin' => [
+		'name' => 'Users Online',
+		'version' => '4.0.0',
+	],
 	'bootstrap' => \UsersOnlineBootstrap::class,
 	'settings' => [
 		'user_listing_limit' => 20,

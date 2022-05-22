@@ -1,8 +1,8 @@
-Users Online for Elgg 3.3 and newer Elgg 3.X
+Users Online for Elgg 4.0 and newer Elgg 4.X
 ============================================
 
-Latest Version: 3.3.0  
-Released: 2021-09-16  
+Latest Version: 4.0.0  
+Released: 2022-05-22  
 Contact: iionly@gmx.de  
 License: GNU General Public License version 2  
 Copyright: (c) iionly 2014
