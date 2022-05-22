@@ -1,3 +1,6 @@
+<?php
+?>
+
 .usersonline {
 	background: white;
 	-webkit-border-radius: 4px;
