@@ -8,10 +8,11 @@
 /* @var $user ElggUser */
 $user = elgg_extract('entity', $vars);
 $size = elgg_extract('size', $vars, 'tiny');
+$logged_in = elgg_get_logged_in_user_entity();
 
 if ($user->isAdmin()) {
 	$class = "usersonlineicon-$size usersonlineadminicon";
-} else if ($user->isFriend()) {
+} else if ($logged_in->isFriendOf($user->guid)) {
 	$class = "usersonlineicon-$size usersonlinefriendicon";
 } else {
 	$class = "usersonlineicon-$size";

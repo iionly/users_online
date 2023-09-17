@@ -3,7 +3,7 @@
 return [
 	'plugin' => [
 		'name' => 'Users Online',
-		'version' => '4.0.0',
+		'version' => '4.3.0',
 	],
 	'bootstrap' => \UsersOnlineBootstrap::class,
 	'settings' => [
